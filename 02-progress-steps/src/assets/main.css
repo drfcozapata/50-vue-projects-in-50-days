@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;500;700&display=swap');
+
+:root {
+	--white: #ffffff;
+	--mute-white: #f6f7fb;
+	--light-blue: #3498db;
+	--light-gray: #e0e0e0;
+	--dark-gray: #999999;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	font-weight: normal;
+}
+#app {
+	max-width: 1920px;
+	margin: 0 auto;
+	padding: 2rem;
+
+	font-weight: normal;
+}
+body {
+	height: 100vh;
+	line-height: 1.6;
+	font-family: 'Muli', sans-serif;
+	font-size: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--mute-white);
+	color: var(--dark-gray);
+	overflow: hidden;
+}
+.progress-steps {
+	display: flex;
+	flex-direction: column;
+	place-content: center;
+}
+.progress {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	height: 4px;
+	width: 0%;
+	background-color: var(--light-blue);
+	z-index: -1;
+	transform: translateY(-50%);
+	transition: 0.4x ease;
+}
+.progress__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	margin-bottom: 30px;
+	max-width: 100%;
+	width: 350px;
+}
+.progress__container::before {
+	content: '';
+	position: absolute;
+	background-color: var(--light-gray);
+	height: 4px;
+	width: 100%;
+	top: 50%;
+	left: 0;
+	z-index: -1;
+	transform: translateY(-50%);
+}
+.circle {
+	height: 30px;
+	width: 30px;
+	border: 3px solid var(--light-gray);
+	border-radius: 50%;
+	background-color: var(--white);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 0.4s ease;
+}
+.circle.active {
+	border: 3px solid var(--light-blue);
+}
+.progress__container-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.progress__container-btn .btn {
+	background-color: var(--light-gray);
+	border-radius: 6px;
+	border: none;
+	color: var(--white);
+	font-family: 'Muli', sans-serif;
+	font-size: 14px;
+	margin: 5px;
+	padding: 8px 30px;
+	cursor: not-allowed;
+}
+.progress__container-btn .btn.active {
+	background-color: var(--light-blue);
+	cursor: pointer;
+}
+
+.progress__container .btn:active {
+	transform: scale(0.98);
+}
